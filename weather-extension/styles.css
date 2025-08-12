@@ -1,5 +1,6 @@
 /* Weather Extension Styles */
 
+/* Reset and base styles */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -10,87 +11,115 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     width: 350px;
     min-height: 400px;
-    background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
-    color: #fff;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #333;
+    padding: 0;
+    margin: 0;
 }
 
+/* Centered container */
 .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     padding: 20px;
+    min-height: 100vh;
+    text-align: center;
 }
 
+/* Header styles */
 h1 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     font-size: 24px;
-    font-weight: 300;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-weight: 600;
+    color: #2c3e50;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+/* Location input section */
 .location-input {
+    width: 100%;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #locationInput {
     width: 100%;
-    padding: 12px;
-    border: none;
+    max-width: 280px;
+    padding: 12px 16px;
+    border: 2px solid #e1e8ed;
     border-radius: 25px;
     font-size: 14px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     outline: none;
+    background: #fff;
+    color: #333;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 #locationInput:focus {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border-color: #3498db;
+    box-shadow: 0 4px 20px rgba(52, 152, 219, 0.2);
+    transform: translateY(-1px);
 }
 
 #locationInput::placeholder {
-    color: #999;
+    color: #95a5a6;
 }
 
+/* Button styles */
 button {
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    border: none;
     color: #fff;
-    padding: 10px 15px;
-    border-radius: 20px;
+    padding: 12px 20px;
+    border-radius: 25px;
     cursor: pointer;
-    font-size: 12px;
-    margin-right: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 5px;
     transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
+    box-shadow: 0 3px 15px rgba(52, 152, 219, 0.3);
+    min-width: 120px;
 }
 
 button:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, #2980b9, #21618c);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 20px rgba(52, 152, 219, 0.4);
 }
 
 button:active {
     transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(52, 152, 219, 0.3);
 }
 
 #searchBtn {
-    background: rgba(255, 255, 255, 0.9);
-    color: #0984e3;
-    font-weight: 600;
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    box-shadow: 0 3px 15px rgba(46, 204, 113, 0.3);
 }
 
 #searchBtn:hover {
-    background: #fff;
+    background: linear-gradient(135deg, #229954, #27ae60);
+    box-shadow: 0 5px 20px rgba(46, 204, 113, 0.4);
 }
 
+/* Weather display */
 .weather-info {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 20px;
-    margin-top: 15px;
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    border-radius: 20px;
+    padding: 25px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e8ecf0;
+    animation: slideUp 0.5s ease-out;
 }
 
 .weather-header {
@@ -101,64 +130,130 @@ button:active {
 #cityName {
     font-size: 20px;
     margin-bottom: 10px;
-    font-weight: 500;
+    font-weight: 600;
+    color: #2c3e50;
 }
 
 #temperature {
     font-size: 48px;
     font-weight: 300;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    color: #3498db;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .weather-details {
     display: grid;
     gap: 12px;
+    margin-top: 20px;
 }
 
 .detail {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 0;
+    border-bottom: 1px solid #ecf0f1;
+    background: #f8f9fa;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-bottom: 5px;
 }
 
 .detail:last-child {
     border-bottom: none;
+    margin-bottom: 0;
 }
 
 .label {
-    font-weight: 500;
-    opacity: 0.8;
+    font-weight: 600;
+    color: #7f8c8d;
+    font-size: 13px;
 }
 
+.value {
+    font-weight: 500;
+    color: #2c3e50;
+    font-size: 13px;
+}
+
+/* Loading spinner */
 .loading {
     text-align: center;
     padding: 40px 20px;
     font-size: 16px;
-    opacity: 0.8;
+    color: #7f8c8d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.error {
-    background: rgba(231, 76, 60, 0.2);
-    border: 1px solid rgba(231, 76, 60, 0.3);
-    color: #fff;
-    padding: 15px;
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #ecf0f1;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Status messages */
+.status-message {
+    padding: 12px 16px;
     border-radius: 10px;
     text-align: center;
-    margin-top: 15px;
-    backdrop-filter: blur(10px);
+    margin: 15px 0;
+    font-weight: 500;
+    font-size: 14px;
+    animation: slideIn 0.3s ease-out;
 }
 
+.status-message.success {
+    background: #d5f4e6;
+    color: #27ae60;
+    border: 1px solid #a3e6c7;
+}
+
+.status-message.error {
+    background: #fdeaea;
+    color: #e74c3c;
+    border: 1px solid #f5b7b1;
+}
+
+.status-message.info {
+    background: #ebf3fd;
+    color: #3498db;
+    border: 1px solid #aed6f1;
+}
+
+/* Error styles */
+.error {
+    background: #fdeaea;
+    border: 1px solid #f5b7b1;
+    color: #e74c3c;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+/* Utility classes */
 .hidden {
     display: none;
 }
 
-/* Animation for weather info appearance */
-.weather-info {
-    animation: slideUp 0.5s ease-out;
+.text-center {
+    text-align: center;
 }
 
+/* Animations */
 @keyframes slideUp {
     from {
         opacity: 0;
@@ -170,7 +265,18 @@ button:active {
     }
 }
 
-/* Responsive adjustments */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive design */
 @media (max-width: 400px) {
     .container {
         padding: 15px;
@@ -178,9 +284,39 @@ button:active {
     
     h1 {
         font-size: 20px;
+        margin-bottom: 20px;
     }
     
     #temperature {
-        font-size: 36px;
+        font-size: 40px;
     }
+    
+    .weather-info {
+        padding: 20px;
+    }
+    
+    button {
+        padding: 10px 16px;
+        min-width: 100px;
+    }
+}
+
+/* Light theme overrides */
+.theme-light body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #333;
+}
+
+.theme-light .weather-info {
+    background: #fff;
+    color: #333;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.theme-light .detail {
+    background: #f8f9fa;
+}
+
+.theme-light #temperature {
+    color: #3498db;
 }
