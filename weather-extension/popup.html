@@ -9,33 +9,19 @@
 <body>
     <div class="container">
         <h1>Weather Extension</h1>
-        <div class="location-input">
-            <input type="text" id="locationInput" placeholder="Enter city name">
-            <button id="searchBtn">Search</button>
-            <button id="currentLocationBtn">Current Location</button>
-        </div>
-        <div id="weatherInfo" class="weather-info hidden">
-            <div class="weather-header">
-                <h2 id="cityName"></h2>
-                <div id="temperature"></div>
-            </div>
-            <div class="weather-details">
-                <div class="detail">
-                    <span class="label">Condition:</span>
-                    <span id="condition"></span>
-                </div>
-                <div class="detail">
-                    <span class="label">Humidity:</span>
-                    <span id="humidity"></span>
-                </div>
-                <div class="detail">
-                    <span class="label">Wind:</span>
-                    <span id="wind"></span>
-                </div>
+        <button id="getWeatherBtn">Get Weather</button>
+        <div id="status"></div>
+        <div id="weather">
+            <div id="city"></div>
+            <div id="temp"></div>
+            <div id="condition"></div>
+            <img id="icon" src="" alt="Weather icon" style="display: none;">
+            <div class="temp-toggle">
+                <label>
+                    <input type="checkbox" id="tempToggle"> °F
+                </label>
             </div>
         </div>
-        <div id="loading" class="loading hidden">Loading...</div>
-        <div id="error" class="error hidden"></div>
     </div>
     <script src="popup.js"></script>
 </body>
